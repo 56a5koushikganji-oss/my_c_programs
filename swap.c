@@ -1,39 +1,15 @@
 #include <stdio.h>
-
 int main() {
-    char operator;
-    double num1, num2, result;
+    int a,b;
+    printf("Enter the numbers(a,b): ");
+    scanf("%d %d", &a, &b);
 
-    printf("Enter an operator (+, -, *, /): ");
-    scanf(" %c", &operator); // Note the space before %c to consume leftover newline
+    printf("Before swapping: a = %d, b = %d\n", a, b);
+    // Swapping logic using addition and subtraction
+    a = a + b;// Step 1: a now holds the sum of a and b
+    b = a - b;// Step 2: b holds the original value of a(sum - original b)
+    a = a - b;// Step 3: a now holds the original value of b(sum - original a)
 
-    printf("Enter two numbers: ");
-    scanf("%lf %lf", &num1, &num2);
-
-    switch (operator) {
-        case '+':
-            result = num1 + num2;
-            printf("%.2lf + %.2lf = %.2lf\n", num1, num2, result);
-            break;
-        case '-':
-            result = num1 - num2;
-            printf("%.2lf - %.2lf = %.2lf\n", num1, num2, result);
-            break;
-        case '*':
-            result = num1 * num2;
-            printf("%.2lf * %.2lf = %.2lf\n", num1, num2, result);
-            break;
-        case '/':
-            if (num2 != 0) {
-                result = num1 / num2;
-                printf("%.2lf / %.2lf = %.2lf\n", num1, num2, result);
-            } else {
-                printf("Error: Division by zero is not allowed.\n");
-            }
-            break;
-        default:
-            printf("Error: Invalid operator entered.\n");
-    }
-
+    printf("After swapping : a = %d, b = %d\n", a, b);
     return 0;
 }
